@@ -1,3 +1,17 @@
+// --- ĐOẠN CODE TẠO WEB SERVER ĐỂ RENDER NHẬN DIỆN VÀ UPTIMEROBOT GIỮ NHỊP ---
+const express = require('express');
+const app = express();
+
+app.get('/', (req, res) => {
+  res.send('Web Server cua Bot Minecraft dang hoat dong!');
+});
+
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`[+] Web server da mo tren port ${port}`);
+});
+
+// --- ĐOẠN CODE BOT MINECRAFT CỦA BẠN ---
 const mineflayer = require('mineflayer');
 
 function createBot() {
@@ -10,7 +24,6 @@ function createBot() {
 
   bot.on('spawn', () => {
     console.log(`[+] Bot ${bot.username} đã vào server!`);
-    
     bot.chat('/dn 04042006');
 
     setTimeout(() => {
